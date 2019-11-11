@@ -14,8 +14,8 @@
 
         <datalist id="petOpt">
             <option value="Cat"></option>
-            <option value="Dog"></option>
-            <option value="Turtle"></option>
+            <option value="Bird"></option>
+            <option value="Rabbit"></option>
         </datalist>
 
 
@@ -23,8 +23,23 @@
         <input type="text" list="petOpt" name="newPet" id="newPet">
     </div>
 
-    <div class="pet img"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum blanditiis explicabo quae earum eaque nisi enim illum! Facere libero quae obcaecati sed? Neque repellendus eveniet adipisci voluptatibus cupiditate sequi quia.</div>
-    <div class="pet stats"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus omnis qui alias distinctio hic, earum asperiores tempore quae error enim corporis optio labore illo animi beatae necessitatibus doloribus atque! Voluptates.</div>
+    <div class="pet img"> </div>
+    <div class="pet stats"> 
+
+        <label for="thirstCount">Give me water - Don't let me get to 0!</label>
+        <input type="number" id="thirstCount" readonly>
+
+        <label for="hungerCount">Give me food - Don't let me get to 0!</label>
+        <input type="number" id="hungerCount" readonly>
+
+        <label for="boredomCount">Play with me - Don't let me get to 0!</label>
+        <input type="number" id="boredomCount" readonly>
+
+        <button class="action" id="feed">Feed Me</button> 
+        <button class="action" id="water">Give Me Water</button>
+        <button class="action" id="play">Let's Play</button>
+        <button class="action" id="revive">Help Me!</button>
+    </div>
 
     <script src = "app.js"></script>
 </body>
