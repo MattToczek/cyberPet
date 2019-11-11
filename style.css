@@ -2,3 +2,17 @@
     display:none;
 }
 
+.name{
+    display:none;
+}
+
+.input1 {
+    display: block;
+    margin-bottom: 3em;
+}
+
+.readOut{
+    display: block;
+    width: 100%;
+    align-items: center;
+}

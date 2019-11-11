@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cyber Pet</h1>
+    <h1 id = "title">Cyber Pet</h1>
 
-    <div class="input">
+    <div class="input type">
 
         <datalist id="petOpt">
             <option value="Cat"></option>
@@ -22,24 +22,42 @@
         <label for="newPet">Please Select a New Pet:</label> <br>
         <input type="text" list="petOpt" name="newPet" id="newPet">
     </div>
+    <div class="input name">
+        <label for="name">Enter your pet's name:</label> <br>
+        <input type="text" name="name" id="name" />
+        <a href="#" id="nameBtn">Enter</a>
 
-    <div class="pet img"> </div>
+
+    </div>
+
+    <div id= "imgAndInfo">
+        <div class="pet img"> </div>
+        <p id = "info"></p>
+    </div>  
+
     <div class="pet stats"> 
 
-        <label for="thirstCount">Give me water - Don't let me get to 0!</label>
-        <input type="number" id="thirstCount" readonly>
+      
+        
+        <div class="readOut">
+            <label for="thirstCount">Give me water - Don't let me get to 0!</label>
+            <input type="number" id="thirstCount" readonly>
+        </div>
 
-        <label for="hungerCount">Give me food - Don't let me get to 0!</label>
-        <input type="number" id="hungerCount" readonly>
+        <div class="readOut">
+            <label for="hungerCount">Give me food - Don't let me get to 0!</label>
+            <input type="number" id="hungerCount" readonly>
+        </div>
 
-        <label for="boredomCount">Play with me - Don't let me get to 0!</label>
-        <input type="number" id="boredomCount" readonly>
+        <div class="readOut">
+            <label for="boredomCount">Play with me - Don't let me get to 0!</label>
+            <input type="number" id="boredomCount" readonly>
+        </div>
 
         <div id="btns">
             <button class="action" id="feed">Feed Me</button> 
             <button class="action" id="water">Give Me Water</button>
             <button class="action" id="play">Let's Play</button>
-            <button class="action" id="revive">Help Me!</button>
         </div>
     </div>
 
