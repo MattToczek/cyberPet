@@ -38,16 +38,34 @@ class Pet {
                     alert(`${this.name} died of boredom.`)    
                 }
 
-                // if (this.thirst >= 80) {
-                //     thirstCount.style.color = "red" ;  
-                // } else if (this.hunger >= 80) {
-                //     hungerCount.style.color = "red" 
-                // }else if(this.boredom >= 80) {
-                //     boredomCount.style.color = "red"   
-                // }
+                checkLevels();
 
             }    
              
+        }
+
+    drink() {
+        if (this.thirst <= 20){
+            this.thirst = 0;
+        } else {
+            this.thirst -= 20;
+        }
+    }
+
+    eat() {
+        if (this.hunger <= 20){
+            this.hunger = 0;
+        } else {
+            this.hunger -= 20;
+        }
+    }
+
+    play() {
+        if (this.boredom <= 20){
+            this.boredom = 0;
+        } else {
+            this.boredom -= 20;
+        }
     }
 
     revive() {                              //resets thirst to 0 and starts count() again
@@ -58,17 +76,36 @@ class Pet {
 
 let petSel = document.getElementById("newPet");
 let img = document.getElementsByClassName("img")[0];
+let stats = document.getElementsByClassName("stats")[0];
 let input = document.getElementsByClassName("input")[0];
-let screenDivs = document.getElementsByClassName("pet");
 let thirstCount = document.getElementById("thirstCount");
 let hungerCount = document.getElementById("hungerCount");
 let boredomCount = document.getElementById("boredomCount");
+let feedBtn = document.getElementById("feed");
+let waterBtn = document.getElementById("water");
+let playBtn = document.getElementById("play");
+let reviveBtn = document.getElementById("revive");
+let actionBtns = document.getElementsByClassName("action");
+let btnsDiv = document.getElementById("btns");
+
 
 let gameScreen = () => {
-    for (let i = 0; i < screenDivs.length; i++) {
-        screenDivs[i].style.display = "block";
-        
+
+    img.style.display = "block";
+    img.style.margin = "auto";
+
+    stats.style.display = "flex";
+    stats.style.flexWrap = "wrap"; 
+    stats.style.flexDirection = "space-around";
+
+    btnsDiv.style.display = "flex";
+    btnsDiv.style.justifyContent = "space-around";
+    for (let i = 0; i < actionBtns.length; i++) {
+        actionBtns[i].style.display = "inline-block";
+        actionBtns[i].style.width = "20%";
+        actionBtns[i].style.margins = "auto";
     }
+    
 }
 
 let getOpt = () => {
@@ -103,6 +140,15 @@ async function revcount(){
     await revFunc(cat);
 }    
 
+let checkLevels = () => {
+    if(petSel.hunger >= 80){
+        alert(`${petSel.name} is getting very hungry!`)
+    } else if(petSel.thirst >= 80){
+        alert(`${petSel.name} is getting very thirsty!`)
+    }else if(petSel.boredom >= 80){
+        alert(`${petSel.name} is getting very bored!`)
+    }
+}
 
 
 // revcount();
@@ -137,4 +183,25 @@ let start = () => {
 
 } 
 
+feedBtn.addEventListener('click', ()=> {
+  
+    petSel.eat()
 
+    hungerCount.value = 100 - petSel.hunger;
+           
+    
+})
+
+waterBtn.addEventListener('click', ()=> {
+    
+    petSel.drink() 
+
+    thirstCount.value = 100 - petSel.thirst; 
+})
+
+playBtn.addEventListener('click', ()=> {
+
+    petSel.play();
+
+    boredomCount.value = 100 - petSel.boredom
+})
